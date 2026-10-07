@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ROG Falchion Ace 電競鍵盤</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    body {
+      background-color: #000;
+      color: #fff;
+    }
+
+    /* 固定頂部導覽列 */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background-color: #000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 40px;
+      z-index: 1000;
+      border-bottom: 1px solid #222;
+    }
+
+    .logo {
+      font-size: 18px;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }
+
+    nav {
+      display: flex;
+      gap: 25px;
+    }
+
+    nav a {
+      color: #aaa;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.3s;
+      position: relative;
+      padding-bottom: 5px;
+    }
+
+    nav a.active, nav a:hover {
+      color: #fff;
+    }
+
+    nav a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -18px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #ff0033;
+    }
+
+    /* 第一頁：白色背景展示區 */
+    .section-hero {
+      margin-top: 60px;
+      background-color: #ffffff;
+      color: #000000;
+      min-height: calc(100vh - 60px);
+      padding: 60px 80px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .product-image-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      max-width: 550px;
+      gap: 20px;
+    }
+
+    .product-img {
+      width: 100%;
+      max-width: 450px;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .product-info {
+      flex: 1;
+      max-width: 600px;
+    }
+
+    .product-title {
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 15px;
+    }
+
+    .product-desc {
+      font-size: 15px;
+      line-height: 1.6;
+      color: #333;
+      margin-bottom: 25px;
+    }
+
+    .feature-list {
+      list-style-type: disc;
+      padding-left: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-size: 14px;
+      color: #222;
+      line-height: 1.5;
+    }
+
+    .feature-list strong {
+      color: #000;
+    }
+
+    /* 第二頁：黑色背景產品卡片區 */
+    .section-products {
+      background-color: #000000;
+      padding: 80px 40px;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    .product-card {
+      background-color: #050505;
+      padding: 20px;
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .card-img {
+      width: 100%;
+      height: 160px;
+      object-fit: contain;
+      margin-bottom: 15px;
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: bold;
+      min-height: 48px;
+      margin-bottom: 15px;
+      line-height: 1.3;
+    }
+
+    .card-price {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+
+    .card-old-price {
+      font-size: 12px;
+      color: #777;
+      text-decoration: line-through;
+      margin-bottom: 15px;
+    }
+
+    .btn-buy {
+      background-color: #ff0033;
+      color: #fff;
+      border: none;
+      padding: 8px 30px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-bottom: 12px;
+      border-radius: 2px;
+    }
+
+    .btn-buy:hover {
+      background-color: #cc0029;
+    }
+
+    .link-more {
+      color: #ff0033;
+      font-size: 13px;
+      text-decoration: none;
+    }
+
+    .link-more:hover {
+      text-decoration: underline;
+    }
+
+    /* 懸浮控制項 */
+    .floating-widgets {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 999;
+    }
+
+    .btn-float {
+      width: 40px;
+      height: 40px;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      cursor: pointer;
+      border: none;
+    }
+
+    .avatar-widget {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background-color: #fff;
+      overflow: hidden;
+      border: 2px solid #ff0033;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 固定導覽列 -->
+  <header>
+    <div class="logo">ROG Falchion Ace 電競鍵盤</div>
+    <nav>
+      <a href="#" class="active">功能特色</a>
+      <a href="#">技術規格</a>
+      <a href="#">獎項</a>
+      <a href="#">產品圖照</a>
+      <a href="#">支援</a>
+    </nav>
+  </header>
+
+  <!-- 第一頁：主產品展示 (白色背景) -->
+  <section class="section-hero">
+    <div class="product-image-container">
+      <!-- 1. 黑色鍵盤圖片 -->
+      <img src="images1.jpg" alt="ROG Falchion Ace 黑色" class="product-img">
+      <!-- 2. 白色鍵盤圖片 -->
+      <img src="images2.jpg" alt="ROG Falchion Ace 白色" class="product-img">
+    </div>
+    <div class="product-info">
+      <h1 class="product-title">ROG Falchion Ace 電競鍵盤</h1>
+      <p class="product-desc">
+        ROG Falchion Ace 65% 輕巧電競鍵盤具備 ROG NX 機械軸，ROG 鍵軸穩定器、吸音泡綿、互動式觸控板、雙 Type-C 連接埠、三種鍵盤傾斜角度，以及保護蓋[cite: 1]。
+      </p>
+      <ul class="feature-list">
+        <li><strong>緊湊設計：</strong>精巧的 68 鍵配置方式巧妙融合箭頭與方向鍵[cite: 1]。</li>
+        <li><strong>ROG NX 機械軸：</strong>具備 7000 萬次點擊壽命、高速觸發力以及特殊調校的觸發行程，提供絕佳的觸覺手感與回饋[cite: 1]。</li>
+        <li><strong>絕佳打字體驗：</strong>獨特設計的 ROG 鍵軸穩定器，確保流暢鍵擊及長鍵的穩定性，鍵盤配有 ROG PBT 二色成型鍵帽及內搭載吸音泡綿[cite: 1]。</li>
+        <li><strong>互動式觸控板：</strong>直覺設計，讓您輕鬆調整個人設定並自訂控制功能[cite: 1]。</li>
+        <li><strong>雙 USB-C®：</strong>雙接口設計實現更整潔的桌面配置，也讓您能在兩台 PC 之間快速切換[cite: 1]。</li>
+        <li><strong>人體工學設計：</strong>鍵盤三種傾斜角度，提供絕佳舒適度及支撐力[cite: 1]。</li>
+        <li><strong>便攜且具保護力：</strong>革命性創新鍵盤保護套，移動時為鍵盤提供保護力[cite: 1]。</li>
+        <li><strong>台灣僅提供白色款</strong>
